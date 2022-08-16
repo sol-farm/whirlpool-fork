@@ -1,0 +1,32 @@
+[package]
+name = "whirlpool"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "whirlpool"
+
+[features]
+no-entrypoint = []
+no-idl = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.24.2"
+anchor-spl = "0.24.2"
+solana-program = "1.9"
+thiserror = "1.0"
+uint = { version = "0.9.1", default-features = false }
+borsh = "0.9.1"
+mpl-token-metadata = { version = "1.2.5", features = ["no-entrypoint"] }
+[dev-dependencies]
+proptest = "1.0"
+serde = "1.0.117"
+serde_json = "1.0.59"
+
+[dev-dependencies.serde_with]
+version = "1.12.0"
+features = ["json"]
