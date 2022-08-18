@@ -15,7 +15,8 @@ pub const TICK_ARRAY_SIZE_USIZE: usize = 88;
 
 #[zero_copy]
 #[repr(packed)]
-#[derive(Default, Debug, PartialEq)]
+#[derive(Default, PartialEq)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct Tick {
     // Total 137 bytes
     pub initialized: bool,     // 1
@@ -115,7 +116,8 @@ impl Tick {
     }
 }
 
-#[derive(Default, Debug, PartialEq)]
+#[derive(Default, PartialEq)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct TickUpdate {
     pub initialized: bool,
     pub liquidity_net: i128,
@@ -140,7 +142,7 @@ impl TickUpdate {
 
 #[account(zero_copy)]
 #[repr(packed)]
-#[derive(Debug)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct TickArray {
     pub start_tick_index: i32,
     pub ticks: [Tick; TICK_ARRAY_SIZE_USIZE],

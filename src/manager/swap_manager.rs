@@ -10,7 +10,7 @@ use crate::{
 use anchor_lang::prelude::*;
 use std::convert::TryInto;
 
-#[derive(Debug)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct PostSwapUpdate {
     pub amount_a: u64,
     pub amount_b: u64,

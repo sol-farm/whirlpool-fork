@@ -3,7 +3,8 @@ use std::convert::TryInto;
 use crate::errors::ErrorCode;
 use crate::math::*;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct SwapStepComputation {
     pub amount_in: u64,
     pub amount_out: u64,

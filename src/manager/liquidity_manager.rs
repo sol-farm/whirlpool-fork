@@ -13,7 +13,7 @@ use crate::{
 use anchor_lang::prelude::*;
 use anchor_lang::prelude::{AccountLoader, ProgramError};
 
-#[derive(Debug)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct ModifyLiquidityUpdate {
     pub whirlpool_liquidity: u128,
     pub tick_lower_update: TickUpdate,

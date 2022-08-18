@@ -87,14 +87,16 @@ impl Position {
     }
 }
 
-#[derive(Copy, Clone, AnchorSerialize, AnchorDeserialize, Default, Debug, PartialEq)]
+#[derive(Copy, Clone, AnchorSerialize, AnchorDeserialize, Default, PartialEq)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct PositionRewardInfo {
     // Q64.64
     pub growth_inside_checkpoint: u128,
     pub amount_owed: u64,
 }
 
-#[derive(Default, Debug, PartialEq)]
+#[derive(Default, PartialEq)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct PositionUpdate {
     pub liquidity: u128,
     pub fee_growth_checkpoint_a: u128,

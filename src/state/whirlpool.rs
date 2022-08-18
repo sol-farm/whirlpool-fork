@@ -10,7 +10,8 @@ use anchor_lang::prelude::*;
 use super::WhirlpoolsConfig;
 
 #[account]
-#[derive(Debug, Default)]
+#[derive(Default)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct Whirlpool {
     pub whirlpools_config: Pubkey, // 32
     pub whirlpool_bump: [u8; 1],   // 1
@@ -245,7 +246,8 @@ impl Whirlpool {
 /// These values are used in conjunction with `PositionRewardInfo`, `Tick.reward_growths_outside`,
 /// and `Whirlpool.reward_last_updated_timestamp` to determine how many rewards are earned by open
 /// positions.
-#[derive(Copy, Clone, AnchorSerialize, AnchorDeserialize, Default, Debug, PartialEq)]
+#[derive(Copy, Clone, AnchorSerialize, AnchorDeserialize, Default, PartialEq)]
+#[cfg_attr(not(target_arch = "bpf"),derive(Debug))]
 pub struct WhirlpoolRewardInfo {
     /// Reward token mint.
     pub mint: Pubkey,
