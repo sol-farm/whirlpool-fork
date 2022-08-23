@@ -7,6 +7,8 @@ pub mod increase_liquidity;
 pub mod open_position;
 pub mod open_position_with_metadata;
 pub mod swap;
+pub mod update_fees_and_rewards;
+
 pub use close_position::*;
 pub use collect_fees::*;
 pub use collect_protocol_fees::*;
@@ -16,3 +18,4 @@ pub use increase_liquidity::*;
 pub use open_position::*;
 pub use open_position_with_metadata::*;
 pub use swap::*;
+pub use update_fees_and_rewards::*;

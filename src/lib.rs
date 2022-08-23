@@ -183,4 +183,14 @@ pub mod whirlpool {
     pub fn close_position(ctx: Context<ClosePosition>) -> Result<()> {
         return instructions::close_position::handler(ctx);
     }
+
+        /// Update the accrued fees and rewards for a position.
+    ///
+    /// #### Special Errors
+    /// - `TickNotFound` - Provided tick array account does not contain the tick for this position.
+    /// - `LiquidityZero` - Position has zero liquidity and therefore already has the most updated fees and reward values.
+    pub fn update_fees_and_rewards(ctx: Context<UpdateFeesAndRewards>) -> Result<()> {
+        return instructions::update_fees_and_rewards::handler(ctx);
+    }
+
 }
