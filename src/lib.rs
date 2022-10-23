@@ -1,6 +1,6 @@
 //! A concentrated liquidity AMM contract powered by Orca.
 use anchor_lang::prelude::*;
-
+use crate::instruction::InitializeTickArray;
 declare_id!("whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc");
 
 #[doc(hidden)]
@@ -192,5 +192,10 @@ pub mod whirlpool {
     pub fn update_fees_and_rewards(ctx: Context<UpdateFeesAndRewards>) -> Result<()> {
         return instructions::update_fees_and_rewards::handler(ctx);
     }
-
+    pub fn initialize_tick_array(
+        ctx: Context<InitializeTickArray>,
+        start_tick_index: i32,
+    ) -> Result<()> {
+        Ok(())
+    }
 }
