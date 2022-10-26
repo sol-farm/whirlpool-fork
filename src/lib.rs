@@ -1,6 +1,5 @@
 //! A concentrated liquidity AMM contract powered by Orca.
 use anchor_lang::prelude::*;
-use crate::instruction::InitializeTickArray;
 declare_id!("whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc");
 
 #[doc(hidden)]
@@ -22,6 +21,7 @@ use instructions::*;
 
 #[program]
 pub mod whirlpool {
+
     use super::*;
     /// Open a position in a Whirlpool. A unique token will be minted to represent the position
     /// in the users wallet. The position will start off with 0 liquidity.

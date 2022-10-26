@@ -8,6 +8,7 @@ pub mod open_position;
 pub mod open_position_with_metadata;
 pub mod swap;
 pub mod update_fees_and_rewards;
+pub mod initialize_tick_array;
 
 pub use close_position::*;
 pub use collect_fees::*;
@@ -19,3 +20,4 @@ pub use open_position::*;
 pub use open_position_with_metadata::*;
 pub use swap::*;
 pub use update_fees_and_rewards::*;
+pub use initialize_tick_array::*;
